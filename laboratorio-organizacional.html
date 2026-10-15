@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorio Organizacional | Psicología del Desempeño</title>
+<style>
+:root{--bg:#fff;--fg:#1d2733;--card:#f4f6f9;--bd:#d5dce5;--navy:#1b2f4b;--org:#f7941d;--mut:#5b6877;--ok:#1f7a4d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161f;--fg:#e8edf3;--card:#1a2330;--bd:#2c3a4d;--navy:#2d4a73;--mut:#9aa7b7;--ok:#5fd199}}
+:root[data-theme="dark"]{--bg:#10161f;--fg:#e8edf3;--card:#1a2330;--bd:#2c3a4d;--navy:#2d4a73;--mut:#9aa7b7;--ok:#5fd199}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
+header{background:var(--navy);color:#fff;padding:18px 16px;border-bottom:5px solid var(--org)}
+header h1{margin:0;font-size:1.3rem}header p{margin:4px 0 0;font-size:.85rem;opacity:.85}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+nav button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+nav button.on{background:var(--org);border-color:var(--org);color:#10161f;font-weight:600}
+main{max-width:820px;margin:0 auto;padding:18px 16px 40px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:0 0 14px}
+h2{margin:0 0 8px;font-size:1.15rem;color:var(--navy)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--org)}}
+:root[data-theme="dark"] h2{color:var(--org)}
+.tag{display:inline-block;background:var(--org);color:#10161f;border-radius:6px;padding:1px 8px;font-size:.75rem;font-weight:700}
+.mut{color:var(--mut);font-size:.88rem}
+label.o{display:block;border:1px solid var(--bd);background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0;cursor:pointer}
+label.o:has(input:checked){border-color:var(--org);box-shadow:0 0 0 2px var(--org)}
+label.o input{margin-right:8px}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:9px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer}
+.btn.s{background:var(--org);color:#10161f}.btn.g{background:transparent;color:var(--fg);border:1px solid var(--bd)}
+input[type=text],select{width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+.lk{display:flex;gap:6px;flex-wrap:wrap}.lk label{flex:1;min-width:48px;text-align:center;border:1px solid var(--bd);background:var(--bg);border-radius:8px;padding:6px 0;cursor:pointer}
+.lk label:has(input:checked){background:var(--org);color:#10161f;border-color:var(--org);font-weight:700}.lk input{display:none}
+.bar{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:3px 0 10px}.bar i{display:block;height:100%;background:var(--org)}
+.prog{height:6px;background:var(--bd);border-radius:3px;margin-bottom:14px}.prog i{display:block;height:100%;background:var(--org);border-radius:3px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.85rem}th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}th{background:var(--navy);color:#fff}
+.fb{font-size:.88rem;border-left:4px solid var(--org);padding:2px 10px;margin:6px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>Laboratorio Organizacional</h1>
+<p>Simulador práctico de diagnóstico, cambio y cultura en la empresa · Psicología del Desempeño · UNEMI</p>
+<nav id="nav"></nav>
+</header>
+<main id="app"></main>
+<script>
+const E={c:'Clásico (Taylor/Weber)',h:'Relaciones humanas (Mayo)',i:'Integral (desarrollo organizacional)'};
+const ST=[
+{n:'Estación 1 · Fundamentos y estrategia',s:'Semanas 1 y 2',caso:'Mercantil Costa S.A. (empresa ficticia de distribución, 120 colaboradores) reportó una caída de ventas del 15 % en el trimestre.',q:[
+{q:'Como gerente/a, ¿cuál es tu primera decisión?',o:[
+['Medir tiempos de cada puesto, estandarizar tareas y aumentar el control.','c','Lógica de Taylor: eficiencia por método y control, sin revisar entorno ni personas.'],
+['Reunir a los equipos para conocer su ánimo y mejorar la motivación.','h','Línea de Mayo: prioriza lo humano, pero sin diagnóstico del mercado.'],
+['Hacer un FODA/PESTEL y revisar si la misión y la visión siguen alineadas al mercado.','i','Planificación estratégica: diagnostica el entorno y la organización antes de decidir.']]},
+{q:'El FODA muestra "entregas tardías" (debilidad) y "clientes que compran en línea" (oportunidad). ¿Qué plan eliges?',o:[
+['Sancionar a bodega por cada retraso y fijar metas diarias.','c','Control y sanción: no ataca la causa ni aprovecha la oportunidad.'],
+['Crear una tienda en línea y rediseñar la logística, con metas e indicadores (cuadro de mando).','i','Cruza debilidades y oportunidades en objetivos, metas y plan de acción medible.'],
+['Hacer una convivencia con bodega y esperar que mejoren los tiempos.','h','Mejora el ambiente, pero no define metas ni acciones estratégicas.']]}]},
+{n:'Estación 2 · Estructura y ARH',s:'Semana 3',caso:'Mercantil Costa abrirá dos sucursales y debe rediseñar su estructura.',q:[
+{q:'¿Qué tipo de organigrama adoptas?',o:[
+['Vertical: un solo jefe aprueba todo y las órdenes bajan por una línea.','c','Jerarquía rígida (Weber): da orden, pero genera cuellos de botella al crecer.'],
+['Horizontal sin jefaturas: todos deciden en conjunto.','h','Favorece la participación, pero difumina responsabilidades.'],
+['Mixto: gerencias funcionales y equipos por sucursal que se coordinan.','i','Combina jerarquía con coordinación y responde al crecimiento.']]},
+{q:'¿Cuál debe ser el papel de la Administración de Recursos Humanos (ARH)?',o:[
+['Decidir sola ascensos y despidos de todas las áreas.','c','Confunde función de staff con línea y centraliza la decisión.'],
+['Asesorar a los jefes en selección, capacitación y evaluación, mientras cada jefe dirige a su equipo.','i','La ARH es función de staff (asesora) y la gestión de personas es función de línea de cada jefe.'],
+['Dedicarse solo a organizar eventos de integración.','h','Reduce la ARH al bienestar y deja de lado sus procesos.']]}]},
+{n:'Estación 3 · Clima y cultura',s:'Semanas 4 y 5',caso:'En Mercantil Costa la rotación subió y hay quejas por el ambiente. Primero responde una mini encuesta de clima pensando en tu trabajo, práctica o grupo de estudio actual.',
+l:[['Estructura','Sé con claridad qué se espera de mi puesto o rol.'],['Responsabilidad','Puedo tomar decisiones sin pedir aprobación para todo.'],['Recompensa','Mi esfuerzo es reconocido.'],['Relaciones','Hay buen trato y cooperación entre compañeros.'],['Conflictos','Los conflictos se resuelven con diálogo.']],q:[
+{q:'Ahora, como responsable de talento humano, ¿qué haces ante la rotación y las quejas?',o:[
+['Endurecer el control de asistencia y sancionar las faltas.','c','Trata el síntoma con control y no mide el clima.'],
+['Aplicar una encuesta de clima y grupos focales, y devolver resultados con un plan de acción.','i','Diagnóstico del clima con instrumentos validados y acción posterior.'],
+['Organizar un paseo y una fiesta de fin de año.','h','Aporta integración, pero no identifica las causas del malestar.']]}]},
+{n:'Estación 4 · Cambio y comunicación',s:'Semanas 6 y 7',caso:'Mercantil Costa implementa un sistema digital de inventarios y el 40 % del personal se resiste.',q:[
+{q:'¿Cómo manejas la resistencia al cambio?',o:[
+['Imponer la fecha límite y sancionar a quien no lo use.','c','Mando y control: suele aumentar la resistencia individual y grupal.'],
+['Explicar el porqué, escuchar temores, capacitar y apoyarte en líderes de cambio.','i','Administración del cambio: comunicación, participación y capacitación.'],
+['Posponer el sistema hasta que todos estén de acuerdo.','h','Evita el conflicto, pero frena la necesidad de cambio.']]},
+{q:'Circulan rumores de despidos. ¿Cómo comunicas?',o:[
+['Una circular escrita única, sin espacio para preguntas.','c','Comunicación unidireccional: deja barreras y vacíos.'],
+['Reunión general con preguntas, mensajes claros de gerencia y un canal interno de seguimiento.','i','Comunicación interna bidireccional que reduce barreras y rumores.'],
+['Dejar que la información fluya en conversaciones informales.','h','El canal informal por sí solo distorsiona el mensaje.']]}]}];
+function msg(t){let d=document.getElementById('toast');if(!d){d=document.createElement('div');d.id='toast';d.style.cssText='position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:10px;z-index:9;border:2px solid var(--org)';document.body.appendChild(d)}d.textContent=t;d.style.display='block';clearTimeout(d.t);d.t=setTimeout(()=>d.style.display='none',2500)}
+const V=['Inicio','Simulador','Matriz del grupo'];
+let view=0,st=0,P={a:'',c:'',s:''},A={},L={};
+const $=s=>document.getElementById(s),app=$('app');
+function nav(){$('nav').innerHTML=V.map((v,k)=>`<button class="${k===view?'on':''}" onclick="go(${k})">${v}</button>`).join('')}
+function go(k){view=k;nav();[home,play,matrix][k]();scrollTo(0,0)}
+function home(){app.innerHTML=`<div class="card"><h2>Bienvenido/a al laboratorio</h2><p>Recorrerás <b>4 estaciones</b> con un caso de empresa ficticia. Tomarás decisiones, responderás una mini encuesta de clima y reaccionarás ante un cambio organizacional. Al final verás tu perfil y su interpretación teórica.</p><p class="mut">Duración: 15 a 20 minutos. Actividad académica e ilustrativa: no es un diagnóstico psicológico ni laboral y no tiene consecuencias para los participantes.</p></div>
+<div class="card"><h2>Reglas</h2><ol><li>Lee el caso de cada estación.</li><li>Elige la opción que realmente tomarías, no la "correcta".</li><li>No hay respuestas buenas o malas; cada una refleja un enfoque.</li><li>Puedes conversar al final, no durante la dinámica.</li></ol></div>
+<div class="card"><h2>Datos del participante</h2><p class="mut">Usa un alias o código, no tu nombre completo.</p><p><input type="text" id="a" placeholder="Alias o código (ej. P01)" value="${P.a}"></p><p><input type="text" id="c" placeholder="Carrera o área de trabajo" value="${P.c}"></p><p><select id="s"><option value="">Semestre o nivel</option>${['1-2','3-4','5-6','7 o más','Colaborador/a'].map(x=>`<option ${P.s===x?'selected':''}>${x}</option>`).join('')}</select></p><button class="btn s" onclick="start()">Comenzar simulación</button></div>`}
+function start(){P={a:$('a').value.trim(),c:$('c').value.trim(),s:$('s').value};if(!P.a||!P.c||!P.s){msg('Completa alias, carrera/área y semestre.');return}A={};L={};st=0;go(1)}
+function play(){if(!P.a){go(0);return}const S=ST[st];let h=`<div class="prog"><i style="width:${st/ST.length*100}%"></i></div><div class="card"><span class="tag">${S.s}</span><h2>${S.n}</h2><p>${S.caso}</p></div>`;
+if(S.l)h+=`<div class="card"><h2>Mini encuesta de clima</h2><p class="mut">1 = Nunca · 5 = Siempre</p>${S.l.map((f,k)=>`<p><b>${f[0]}.</b> ${f[1]}</p><div class="lk">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="l${k}" value="${n}" ${L[k]==n?'checked':''} onchange="L[${k}]=${n}">${n}</label>`).join('')}</div>`).join('')}</div>`;
+S.q.forEach((q,k)=>{const id=st+'_'+k;h+=`<div class="card"><p><b>${q.q}</b></p>${q.o.map((o,j)=>`<label class="o"><input type="radio" name="${id}" ${A[id]===j?'checked':''} onchange="A['${id}']=${j}">${o[0]}</label>`).join('')}</div>`});
+h+=`<div class="row">${st?'<button class="btn g" onclick="st--;play()">Anterior</button>':''}<button class="btn s" onclick="nxt()">${st===ST.length-1?'Ver mi resultado':'Siguiente estación'}</button></div>`;app.innerHTML=h}
+function nxt(){const S=ST[st];const ok=S.q.every((q,k)=>A[st+'_'+k]!==undefined)&&(!S.l||S.l.every((f,k)=>L[k]));if(!ok){msg('Responde todas las preguntas de esta estación.');return}if(st<ST.length-1){st++;play();scrollTo(0,0)}else res()}
+function calc(){const n={c:0,h:0,i:0};let t=0;ST.forEach((S,s)=>S.q.forEach((q,k)=>{n[q.o[A[s+'_'+k]][1]]++;t++}));const p={};for(const x in n)p[x]=Math.round(n[x]/t*100);const f=ST[2].l.map((x,k)=>[x[0],L[k]]);const cl=+(f.reduce((a,x)=>a+x[1],0)/f.length).toFixed(1);return{n,t,p,f,cl}}
+const TX={c:'Predomina un estilo clásico: orden, control y eficiencia (Taylor, Weber). Sirve para estandarizar, pero puede aumentar la resistencia al cambio y deteriorar el clima si no se considera a las personas.',h:'Predomina el enfoque de relaciones humanas (Mayo): valoras el ambiente y la participación. Conviene reforzar el diagnóstico, la estructura y las metas.',i:'Predomina un enfoque integral: combinas diagnóstico, estructura, participación y comunicación, propio del desarrollo organizacional.'};
+function res(){view=1;const r=calc();const d=Object.keys(r.p).sort((a,b)=>r.p[b]-r.p[a])[0];const lv=r.cl>=4?'favorable':r.cl>=3?'intermedio':'por mejorar';
+let h=`<div class="card"><span class="tag">Resultado de ${P.a}</span><h2>Tu perfil de decisión</h2>${['c','h','i'].map(x=>`<div>${E[x]}: <b>${r.p[x]} %</b> (${r.n[x]} de ${r.t})</div><div class="bar"><i style="width:${r.p[x]}%"></i></div>`).join('')}<p>${TX[d]}</p><p class="mut">Indicador de gestión integral: <b>${r.p.i} %</b></p></div>
+<div class="card"><h2>Clima percibido: ${r.cl} / 5 (${lv})</h2>${r.f.map(x=>`<div>${x[0]}: <b>${x[1]}</b></div><div class="bar"><i style="width:${x[1]*20}%"></i></div>`).join('')}</div>
+<div class="card"><h2>Retroalimentación por decisión</h2>`;
+ST.forEach((S,s)=>S.q.forEach((q,k)=>{const o=q.o[A[s+'_'+k]];h+=`<p><b>${S.n.split('·')[0].trim()}:</b> ${o[0]}</p><div class="fb">${E[o[1]]}. ${o[2]}</div>`}));
+h+=`</div><div class="row"><button class="btn s" onclick="save()">Guardar en la matriz del grupo</button><button class="btn g" onclick="go(0)">Nuevo participante</button></div>`;app.innerHTML=h;nav();scrollTo(0,0)}
+function rows(){try{return JSON.parse(localStorage.getItem('lab_m')||'[]')}catch(e){return window._m||[]}}
+function put(r){window._m=r;try{localStorage.setItem('lab_m',JSON.stringify(r))}catch(e){}}
+function save(){const r=calc(),m=rows();m.push({a:P.a,c:P.c,s:P.s,pc:r.p.c,ph:r.p.h,pi:r.p.i,cl:r.cl});put(m);go(2)}
+function matrix(){const m=rows();const av=k=>m.length?(m.reduce((a,x)=>a+x[k],0)/m.length).toFixed(1):'-';
+app.innerHTML=`<div class="card"><h2>Matriz de registro del grupo</h2><p class="mut">Cada participante guardado queda en esta tabla (solo en este navegador). Úsala para el análisis de patrones y copia la tabla al informe.</p><div class="tw"><table><tr><th>Código</th><th>Carrera/área</th><th>Nivel</th><th>% Clásico</th><th>% Humanista</th><th>% Integral</th><th>Clima (1-5)</th></tr>${m.map(x=>`<tr><td>${x.a}</td><td>${x.c}</td><td>${x.s}</td><td>${x.pc}</td><td>${x.ph}</td><td>${x.pi}</td><td>${x.cl}</td></tr>`).join('')||'<tr><td colspan="7">Aún no hay participantes guardados.</td></tr>'}<tr><td colspan="3"><b>Promedio (n=${m.length})</b></td><td>${av('pc')}</td><td>${av('ph')}</td><td>${av('pi')}</td><td>${av('cl')}</td></tr></table></div><div class="row"><button class="btn s" onclick="cp()">Copiar matriz</button><button class="btn g" onclick="put([]);matrix()">Borrar registros</button></div></div>`}
+function cp(){const m=rows();const t=['Código\tCarrera/área\tNivel\t% Clásico\t% Humanista\t% Integral\tClima'].concat(m.map(x=>[x.a,x.c,x.s,x.pc,x.ph,x.pi,x.cl].join('\t'))).join('\n');try{navigator.clipboard.writeText(t).then(()=>msg('Matriz copiada'),()=>msg('No se pudo copiar'))}catch(e){msg('No se pudo copiar')}}
+go(0);
+</script>
+</body>
+</html>
